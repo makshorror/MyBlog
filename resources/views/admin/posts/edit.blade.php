@@ -61,6 +61,7 @@
                                 <div class="text-danger">Пустое поле</div>
                                 @enderror
                             </div>
+
                             <div class="w-25">
                                 <button
                                     type="submit"

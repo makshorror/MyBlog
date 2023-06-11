@@ -46,6 +46,7 @@
                                                 <th>ID</th>
                                                 <th>Название</th>
                                                 <th>Контент</th>
+                                                <th>Категория</th>
 
                                                 <th></th>
                                             </tr>
@@ -63,6 +64,9 @@
                                                     </td>
                                                     <td>
                                                         {{ $item -> content }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item -> category_id }}
                                                     </td>
                                                     <td>
                                                         <form action="{{ route('admin.post.destroy', $item->id) }}"

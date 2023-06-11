@@ -31,7 +31,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -51,6 +51,10 @@
                                             <tr>
                                                 <td>Контент</td>
                                                 <td>{{ $post->content }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Категория</td>
+                                                <td>{{ $post->category_id }}</td>
                                             </tr>
 
                                             </tbody>
