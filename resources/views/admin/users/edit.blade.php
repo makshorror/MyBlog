@@ -48,9 +48,40 @@
                                     value="{{ $user->name }}"
                                 >
                                 @error('name')
-                                <div class="text-danger">Пустое поле</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Введите email..."
+                                    name="email"
+                                    value="{{ $user->email }}"
+                                >
+                                @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Выберете роль пользователю</label>
+                                <select
+                                    name="role"
+                                    class="form-control"
+                                >
+                                    @foreach($roles as $id => $item)
+                                        <option
+                                            value="{{ $id }}"
+                                            {{ $id == $user->role ? ' selected' : ''}}
+                                        >{{ $item }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            </div>
+
                             <div class="w-25">
                                 <button
                                     type="submit"

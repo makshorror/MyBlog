@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,6 +23,23 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string',
+            'role' => 'required|integer'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Поле пустое',
+            'name.string' => 'Поле должно быть строкой',
+            'email.required' => 'Поле пустое',
+            'email.string' => 'Поле должно быть строкой',
+            'email.email' => 'Почта должна соответствовать формату mail@some.domain',
+            'email.unique' => 'Пользователь с таким email же существует',
+            'password.required' => 'Поле пустое',
+            'password.string' => 'Поле должно быть строкой'
         ];
     }
 }

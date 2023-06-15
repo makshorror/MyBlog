@@ -60,11 +60,16 @@
                                                         <a href="{{ route('admin.user.show', $item->id) }}">{{ $item -> name }}</a>
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('admin.user.destroy', $item->id) }}"
-                                                        method="POST">
+                                                        <form
+                                                            action="{{ route('admin.user.destroy', $item->id) }}"
+                                                            method="POST"
+                                                        >
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="border-0 bg-transparent">
+                                                            <button
+                                                                type="submit"
+                                                                class="border-0 bg-transparent"
+                                                            >
 
                                                                 <i
                                                                     class="fas fa-trash text-danger"
@@ -90,8 +95,9 @@
 
             </div>
             <!-- /.row -->
-    </div><!-- /.container-fluid -->
-    </section>
+            <!-- /.container-fluid -->
+        </section>
+    </div>
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

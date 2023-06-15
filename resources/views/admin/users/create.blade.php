@@ -39,12 +39,49 @@
                                 <input
                                     type="text"
                                     class="form-control"
-                                    placeholder="Введите название пользователя..."
+                                    placeholder="Введите имя пользователя..."
                                     name="name"
                                 >
                                 @error('name')
-                                <div class="text-danger">Пустое поле</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Введите email..."
+                                    name="email"
+                                >
+                                @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Введите пароль..."
+                                    name="password"
+                                >
+                                @error('password')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Выберете роль пользователю</label>
+                                <select
+                                    name="role_id"
+                                    class="form-control"
+                                >
+                                    @foreach($roles as $id => $item)
+                                        <option
+                                            value="{{ $id }}"
+                                            {{ $id == old('$role_id') ? ' selected' : ''}}
+                                        >{{ $item }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="w-25">
                                 <button
