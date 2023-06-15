@@ -34,9 +34,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="card">
                                     <div class="card-body table-responsive p-0">
                                         <table class="table table-hover text-nowrap">
@@ -45,8 +45,6 @@
                                                 <th></th>
                                                 <th>ID</th>
                                                 <th>Название</th>
-                                                <th>Контент</th>
-                                                <th>Категория</th>
 
                                                 <th></th>
                                             </tr>
@@ -61,12 +59,6 @@
                                                     <td>{{ $item -> id }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.post.show', $item->id) }}">{{ $item -> title }}</a>
-                                                    </td>
-                                                    <td>
-                                                        {{ $item -> content }}
-                                                    </td>
-                                                    <td>
-                                                        {{ $item -> category_id }}
                                                     </td>
                                                     <td>
                                                         <form action="{{ route('admin.post.destroy', $item->id) }}"

@@ -53,6 +53,26 @@
                                                 <td>{{ $post->content }}</td>
                                             </tr>
                                             <tr>
+                                                <td>Превью избражение</td>
+                                                <td class="w-25">
+                                                    <img
+                                                        src="{{ url('storage/' . $post->preview_image) }}"
+                                                        alt="Preview"
+                                                        class="w-25"
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Главное избражение</td>
+                                                <td class="w-25">
+                                                        <img
+                                                            src="{{ url('storage/' . $post->main_image) }}"
+                                                            alt="Preview"
+                                                            class="w-25"
+                                                        >
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <td>Категория</td>
                                                 <td>{{ $post->category_id }}</td>
                                             </tr>
@@ -77,7 +97,7 @@
                         @method('DELETE')
                         <button
                             type="submit"
-                            class="btn btn-block btn-danger"
+                            class="btn btn-block btn-danger  mb-3"
                         >
                             Удалить
                         </button>

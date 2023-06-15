@@ -24,8 +24,24 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'preview_image' => 'required|file',
-            'main_image' => 'required|file',
+            'preview_image' => 'nullable|file',
+            'main_image' => 'nullable|file',
+            'category_id' => 'required|integer|exists:categories,id',
+            'tag_ids' => 'nullable|array',
+            'tag_ids.*' => 'nullable|integer|exists:tags,id',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Заполните поле',
+            'title.string' => 'Поле может содержать только символы',
+            'content.required' => 'Заполните поле',
+            'preview_image.required' => 'Вставьте изображение',
+            'preview_image.file' => 'Вставьте изображение',
+            'main_image.required' => 'Вставьте изображение',
+            'main_image.file' => 'Вставьте изображение',
         ];
     }
 }
