@@ -9,7 +9,7 @@ Route::group(['App\Http\Controllers\Main'], function () {
 });
 
 
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('admin.index');
     });

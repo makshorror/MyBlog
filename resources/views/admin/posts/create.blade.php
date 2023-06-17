@@ -53,7 +53,7 @@
                                 <textarea
                                     name="content"
                                     id="summernote"
-                                >{{ old('title') }}
+                                >{{ old('content') }}
                                 </textarea>
                                 @error('content')
                                 <div class="text-danger">{{ $message }}</div>

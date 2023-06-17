@@ -31,7 +31,6 @@
                         <form
                             action="{{ route('admin.user.store') }}"
                             method="POST"
-
                             class="w-25"
                         >
                             @csrf
@@ -41,6 +40,7 @@
                                     class="form-control"
                                     placeholder="Введите имя пользователя..."
                                     name="name"
+                                    value="{{ old('name') }}"
                                 >
                                 @error('name')
                                 <div class="text-danger">{{ $message }}</div>
@@ -52,6 +52,7 @@
                                     class="form-control"
                                     placeholder="Введите email..."
                                     name="email"
+                                    value="{{ old('email') }}"
                                 >
                                 @error('email')
                                 <div class="text-danger">{{ $message }}</div>
@@ -78,7 +79,7 @@
                                     @foreach($roles as $id => $item)
                                         <option
                                             value="{{ $id }}"
-                                            {{ $id == old('$role_id') ? ' selected' : ''}}
+                                            {{ $id == old('role_id') ? ' selected' : ''}}
                                         >{{ $item }}</option>
                                     @endforeach
                                 </select>

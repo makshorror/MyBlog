@@ -41,6 +41,7 @@
                                     class="form-control"
                                     placeholder="Введите название тега..."
                                     name="title"
+                                    value="{{ old('title') }}"
                                 >
                                 @error('title')
                                 <div class="text-danger">Пустое поле</div>
