@@ -43,7 +43,7 @@
                                                 <tr>
                                                     <td>{{ $item -> id }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.post.show', $item->id) }}">{{ $item -> title }}</a>
+                                                        <a href="{{ route('personal.liked.show', $item->id) }}">{{ $item -> title }}</a>
                                                     </td>
                                                     <td>
                                                         <form action="{{ route('personal.liked.destroy', $item->id) }}"
