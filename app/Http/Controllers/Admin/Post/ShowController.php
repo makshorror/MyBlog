@@ -11,6 +11,7 @@ class ShowController extends BaseController
     {
         $data = $post->category_id;
         $category = Category::find($data);
+        $category = $category['title'];
         return view('admin.posts.show', compact('post', 'category'));
     }
 }

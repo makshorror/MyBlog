@@ -74,7 +74,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Категория</td>
-                                                <td>{{ $category->title }}</td>
+                                                <td>{{ $category }}</td>
                                             </tr>
 
                                             </tbody>

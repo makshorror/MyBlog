@@ -11,8 +11,10 @@ class UpdateController extends BaseController
     public function __invoke(UpdateRequest $request, Post $post)
     {
         $data = $request->validated();
+        $category = Category::find($data['category_id']);
+        $category = $category['title'];
         $post = $this->service->update($data, $post);
 
-        return view('admin.posts.show', compact('post'));
+        return view('admin.posts.show', compact('post', 'category'));
     }
 }
