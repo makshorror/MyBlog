@@ -48,12 +48,56 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Download</a>
-                    </li>
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('login') }}"
+                                >{{ __('Войти') }}</a>
+                            </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('register') }}"
+                                >{{ __('Регистрация') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a
+                                id="navbarDropdown"
+                                class="nav-link"
+                                href="{{ route('personal.main.index') }}"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                v-pre
+                            >
+                                {{ Auth::user()->name }}
+                            </a>
+
+
+                        </li>
+                        <li class="nav-item">
+                            <form
+                                action="{{ route('logout') }}"
+                                method="POST"
+                            >
+                                @csrf
+                                <input
+                                    type="submit"
+                                    class="btn nav-link btn-navbar"
+                                    value="Выйти"
+                                >
+                            </form>
+                        </li>
+                    @endguest
                 </ul>
             </div>
         </nav>

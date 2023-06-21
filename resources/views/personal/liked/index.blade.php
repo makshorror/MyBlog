@@ -46,11 +46,16 @@
                                                         <a href="{{ route('personal.liked.show', $item->id) }}">{{ $item -> title }}</a>
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('personal.liked.destroy', $item->id) }}"
-                                                              method="POST">
+                                                        <form
+                                                            action="{{ route('personal.liked.destroy', $item->id) }}"
+                                                            method="POST"
+                                                        >
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="border-0 bg-transparent">
+                                                            <button
+                                                                type="submit"
+                                                                class="border-0 bg-transparent"
+                                                            >
 
                                                                 <i
                                                                     class="fas fa-trash text-danger"

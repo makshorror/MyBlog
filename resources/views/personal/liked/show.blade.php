@@ -46,7 +46,7 @@
 
                                             <tr>
                                                 <td>Контент</td>
-                                                <td>{{ $post->content }}</td>
+                                                <td>{!!$post->content!!}</td>
                                             </tr>
                                             <tr>
                                                 <td>Превью избражение</td>
