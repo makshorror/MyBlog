@@ -18,10 +18,11 @@
                         </a>
                     </div>
                 @endforeach
+                    <div class="mx-auto" style="margin-top: -80px;">
+                        {{ $posts->links() }}
+                    </div>
             </div>
-            <div>
-                {{ $posts->links() }}
-            </div>
+
         </section>
         <h5 class="widget-title mt-5">Случайные посты</h5>
         <div class="row">
