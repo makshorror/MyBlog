@@ -9,6 +9,8 @@ class ShowController extends BaseController
 {
     public function __invoke(Post $post)
     {
-        return view('admin.posts.show', compact('post'));
+        $data = $post->category_id;
+        $category = Category::find($data);
+        return view('admin.posts.show', compact('post', 'category'));
     }
 }

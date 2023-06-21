@@ -74,7 +74,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Категория</td>
-                                                <td>{{ $post->category_id }}</td>
+                                                <td>{{ $category->title }}</td>
                                             </tr>
 
                                             </tbody>
