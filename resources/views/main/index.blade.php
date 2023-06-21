@@ -35,7 +35,7 @@
                 <div class="row">
                     <div
                         class="mx-auto"
-                        style="margin-top: -80px;"
+                        style="margin-top: -100px;"
                     >
                         {{ $posts->links() }}
                     </div>
