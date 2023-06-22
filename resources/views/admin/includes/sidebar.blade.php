@@ -46,6 +46,15 @@
                 </a>
             </li>
 
+            <li class="nav-item mt-5">
+                <a href="{{ route('main.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-door-open"></i>
+                    <p>
+                        Выйти на главную
+                    </p>
+                </a>
+            </li>
+
         </ul>
     </div>
 </aside>
