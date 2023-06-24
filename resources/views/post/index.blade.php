@@ -21,7 +21,32 @@
                                     alt="blog post"
                                 >
                             </div>
-                            <p class="blog-post-category">{{ $item->category->title }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="blog-post-category">{{ $item->category->title }}</p>
+                                <form
+                                    action="{{ route('post.like.store', $item->id) }}"
+                                    method="POST"
+                                >
+                                    @csrf
+                                    <button
+                                        type="submit"
+                                        class="border-0 bg-transparent"
+                                    >
+                                        @auth()
+                                            @if(auth()->user()->likedPosts->contains($item->id))
+                                                <i class="fas fa-heart"> {{ $item->liked_users_count }}</i>
+                                            @else
+                                                <i class="far fa-heart"> {{ $item->liked_users_count }}</i>
+                                            @endif
+                                        @endauth
+                                    </button>
+                                </form>
+                                @guest()
+                                    <div>
+                                        <i class="far fa-heart"> {{ $item->liked_users_count }}</i>
+                                    </div>
+                                @endguest()
+                            </div>
                             <a
                                 href="{{ route('post.show', $item->id) }}"
                                 class="blog-post-permalink"

@@ -72,11 +72,41 @@
                             <p
                                 class="comment-section mb-4"
                                 data-aos="fade-up"
-                            ><a href="{{ route('login') }} " class="blog-post-permalink">Войдите</a> или <a href="{{ route('register') }}">зарегистрируйтесь</a>, чтобы оставлять или читать комментарии...</p>
+                            ><a
+                                    href="{{ route('login') }} "
+                                    class="blog-post-permalink"
+                                >Войдите</a> или <a href="{{ route('register') }}">зарегистрируйтесь</a>, чтобы
+                                             оставлять или читать комментарии...</p>
                         </div>
                     @endguest
 
                     @auth()
+
+                        <section class="mb-3">
+                            <form
+                                action="{{ route('post.like.store', $post->id) }}"
+                                method="POST"
+                            >
+                                @csrf
+                                <button
+                                    type="submit"
+                                    class="border-0 bg-transparent"
+                                >
+                                    @auth()
+                                        @if(auth()->user()->likedPosts->contains($post->id))
+                                            <i class="fas fa-heart"> {{ $post->liked_users_count }}</i>
+                                        @else
+                                            <i class="far fa-heart"> {{ $post->liked_users_count }}</i>
+                                        @endif
+                                    @endauth
+                                </button>
+                            </form>
+                            @guest()
+                                <div>
+                                    <i class="far fa-heart"> {{ $post->liked_users_count }}</i>
+                                </div>
+                            @endguest()
+                        </section>
                         <section class="comment-list mb-5">
                             <h3
                                 class="section-title mb-5"
